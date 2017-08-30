@@ -1,25 +1,80 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Harry Potter Tic Tac Toe Game</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
 
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <h1>Harry Potter Tic Tac Toe Game</h1>
+      <h2>I Solemnly Swear That I Am Up To No Good</h2>
+<nav>
+<div class="menu row">
+<button type="button" class="btn btn-primary btn-md">Sign In</button>
+<button type="button" class="btn btn-primary btn-md">Sign Out</button>
+<button type="button" class="btn btn-primary btn-md">Change Password</button>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+<!-- Instruction Button -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Instructions
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Instructions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Two wizards play on 3x3 grid.
+        A wizard can put his/her spell (either X or O) in an empty cell in the grid.
+        If a wizard forms a row, a column or a diagonal with his/her spells, that player wins the duel and the game ends.
+        If the grid is full and there’s no row, column or diagonal of the same letter, the duel ends at draw.
+        A wizard should try to win in the lowest possible number of moves.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Instruction Button End -->
+</div>
+</nav>
+<div class="scoreboard">
+  SCOREBOARD
+</div>
+  <div class="grid">
+    <div class="row">
+      <div class="col-xs-4 box" id="1"></div>
+      <div class="col-xs-4 box" id="2"></div>
+      <div class="col-xs-4 box" id="3"></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 box" id="4"></div>
+    <div class="col-xs-4 box" id="5"></div>
+    <div class="col-xs-4 box" id="6"></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 box" id="7"></div>
+    <div class="col-xs-4 box" id="8"></div>
+    <div class="col-xs-4 box" id="9"></div>
+  </div>
+  </div>
+  <footer>Made By Stephanie Martin</footer>
+  <a href="#" class="fa fa-linkedin"></a>
+<a href="#" class="fa fa-github"></a>
     </body>
 </html>

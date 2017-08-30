@@ -1,2 +1,38 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body {
+  background-color: rgb(228, 201, 19);
+  text-align: center;
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+}
+
+.box {
+  border: 1px solid #000;
+  height: 150px;
+  width: 150px;
+}
+
+.grid {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  width: 500px;
+  height: 300px;
+  margin-left: -250px;
+  margin-top: -150px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+ font-family: 'EB Garamond', serif;
+}
+
+h2 {
+  font-size: 20px;
+  text-align: center;
+  font-family: 'EB Garamond', serif;
+}
