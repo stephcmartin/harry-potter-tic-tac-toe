@@ -6,22 +6,22 @@ body {
   text-align: center;
   font-family: 'EB Garamond', serif;
   font-size: 20px;
+  width: 550px;
+  margin: auto;
 }
 
-.box {
-  border: 1px solid #000;
-  height: 150px;
-  width: 150px;
+.square {
+border: 1px solid #000;
+height: 150px;
+width: 150px;
+text-align: center;
+font-weight: 800;
+font-size: 50px;
 }
 
-.grid {
-  position: absolute;
-  top: 53%;
-  left: 50%;
-  width: 500px;
-  height: 300px;
-  margin-left: -250px;
-  margin-top: -150px;
+#message {
+  color: rgb(32, 47, 41);
+  font-size: 30px;
 }
 
 h1 {
@@ -29,10 +29,13 @@ h1 {
   font-weight: 800;
   text-align: center;
  font-family: 'EB Garamond', serif;
+ border-bottom: 1px solid black;
 }
 
 h2 {
   font-size: 20px;
   text-align: center;
   font-family: 'EB Garamond', serif;
+  color: rgb(14, 58, 134);
+  font-weight: 800;
 }
