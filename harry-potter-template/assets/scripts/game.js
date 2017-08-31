@@ -25,6 +25,7 @@ const nextMove = function nextMove (square) {
 const switchTurn = function switchTurn () {
   if (checkWinner(document.turn)) {
     setMessage('Mischeif Managed! ' + document.turn + ' has won the duel!')
+    window.alert('Mischeif Managed! ' + document.turn + ' has won the duel!')
     document.winner = document.turn
   } else if (document.turn === 'X') {
     document.turn = 'O'
@@ -58,19 +59,21 @@ const checkRow = function checkRow (a, b, c, move) {
   return result
 }
 
+// const noWins = function ()
+
 const getSquare = function getSquare (number) {
-  return document.getElementById('s' + number).innerText
+  return document.getElementById(number).innerText
 }
 
 const clearBoard = function clearBoard (number) {
-  document.getElementById('s' + number).innerText = ''
+  document.getElementById(number).innerText = ''
 }
-
+//
 console.log(startGame)
 console.log(nextMove)
-console.log(switchTurn)
-console.log(setMessage)
-console.log(checkRow)
-console.log(getSquare)
-console.log(checkWinner)
-console.log(clearBoard)
+// console.log(switchTurn)
+// console.log(setMessage)
+// console.log(checkRow)
+// console.log(getSquare)
+// console.log(checkWinner)
+// console.log(clearBoard)

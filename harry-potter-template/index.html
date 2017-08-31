@@ -15,115 +15,80 @@
     </head>
     <body class="container-fluid" onload="startGame()">
       <h1>Harry Potter Tic Tac Toe Game</h1>
-    <div id="message">
-      Message Here
-    </div>
       <h2>I Solemnly Swear That I Am Up To No Good</h2>
+      <!-- Instruction Button -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Instructions
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Instructions</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Two wizards play on 3x3 grid.
+              A wizard can put his/her spell (either X or O) in an empty cell in the grid.
+              If a wizard forms a row, a column or a diagonal with his/her spells, that player wins the duel and the game ends.
+              If the grid is full and there’s no row, column or diagonal of the same letter, the duel ends at draw.
+              A wizard should try to win in the lowest possible number of moves.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Instruction Button End -->
+      <div id="message"></div>
 <nav>
-<div class="menu row">
-<!-- Sign In Button -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInButton">
-    Sign In!
-  </button>
-    <!-- Modal -->
-    <div class="modal fade" id="signInButton" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="signInButton">Sign In</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-<!-- Sign Out Button -->
-<button type="button" class="btn btn-primary btn-md">Sign Out</button>
-
-<!-- Change Password Button -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePasswordButton">
-  Change Password
-</button>
-  <!-- Modal -->
-  <div class="modal fade" id="changePasswordButton" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="changePasswordButton">Change Password</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Old Password</label>
-              <input type="password" class="form-control" id="oldPassword" placeholder="Old Password">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">New Password</label>
-              <input type="password" class="form-control" id="newPassword" placeholder="New Password">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<!-- Instruction Button -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Instructions
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Instructions</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Two wizards play on 3x3 grid.
-        A wizard can put his/her spell (either X or O) in an empty cell in the grid.
-        If a wizard forms a row, a column or a diagonal with his/her spells, that player wins the duel and the game ends.
-        If the grid is full and there’s no row, column or diagonal of the same letter, the duel ends at draw.
-        A wizard should try to win in the lowest possible number of moves.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+<div class="menuRow">
+<div class="panel">
+<p id='message'></p>
+<!-- Sign Up -->
+<form id="sign-up">
+        <fieldset>
+          <legend>Wizards, sign up here: </legend>
+          <input type="text" name="credentials[email]" placeholder="YOUR EMAIL">
+          <input type="text" name="credentials[password]" placeholder="YOUR PASSWORD">
+          <input type="text" name="credentials[password_confirmation]" placeholder="PASSWORD CONFIRMATION">
+          <input type="submit" name="submit" value="Sign up!">
+        </fieldset>
+</form>
+<br>
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign in to your account:</legend>
+          <input type="text" name="credentials[email]" placeholder="YOUR EMAIL">
+          <input type="text" name="credentials[password]" placeholder="YOUR PASSWORD">
+          <input type="submit" name="submit" value="Sign in to your account!">
+        </fieldset>
+      </form>
+      <form id="change-password">
+        <fieldset>
+          <legend>Change your password:</legend>
+          <input type="text" name="passwords[old]" placeholder="YOUR OLD PASSWORD">
+          <input type="text" name="passwords[new]" placeholder="YOUR NEW PASSWORD">
+          <input type="submit" name="submit" value="Change your password!">
+        </fieldset>
+      </form>
+      <br>
+      <form id="sign-out">
+        <fieldset>
+          <legend>Sign Out Of Your Account</legend>
+          <input type="submit" name="submit" value="Sign Out!">
+        </fieldset>
+      </form>
+<br>
 </div>
-<!-- Instruction Button End -->
 </div>
 </nav>
-<div class="scoreboard">
+<!-- <div class="scoreboard">
   <div class="input-prepend input-append">
     <span class="add-on win_text">O won </span>
     <strong id="o_win" class="win_times add-on">0</strong>
@@ -134,23 +99,25 @@
     <strong id="x_win" class="win_times add-on">0</strong>
     <span class="add-on"> time(s)</span>
     </div>
-</div>
+</div> -->
+
+<br>
 <div id="board">
 <table border="1">
 <tr>
-  <td class="square" id="s1" onClick="nextMove(this)"></td>
-  <td class="square" id="s2" onClick="nextMove(this)"></td>
-  <td class="square" id="s3" onClick="nextMove(this)"></td>
+  <td class="square" id="1" onClick="nextMove(this)"></td>
+  <td class="square" id="2" onClick="nextMove(this)"></td>
+  <td class="square" id="3" onClick="nextMove(this)"></td>
 </tr>
 <tr>
-  <td class="square" id="s4" onClick="nextMove(this)"></td>
-  <td class="square" id="s5" onClick="nextMove(this)"></td>
-  <td class="square" id="s6" onClick="nextMove(this)"></td>
+  <td class="square" id="4" onClick="nextMove(this)"></td>
+  <td class="square" id="5" onClick="nextMove(this)"></td>
+  <td class="square" id="6" onClick="nextMove(this)"></td>
 </tr>
 <tr>
-  <td class="square" id="s7" onClick="nextMove(this)"></td>
-  <td class="square" id="s8" onClick="nextMove(this)"></td>
-  <td class="square" id="s9" onClick="nextMove(this)"></td>
+  <td class="square" id="7" onClick="nextMove(this)"></td>
+  <td class="square" id="8" onClick="nextMove(this)"></td>
+  <td class="square" id="9" onClick="nextMove(this)"></td>
 </tr>
 </table>
 <a href="javascript: startGame()"><button type="button" class="btn btn-primary btn-md">Mischeif Managed. Restart Game.</button></a>
