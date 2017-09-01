@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Harry Potter Tic Tac Toe Game</title>
+      <title>Harry Potter Tic Tac Toe Game </title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -13,8 +13,8 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container-fluid" onload="startGame()">
-      <h1>Harry Potter Tic Tac Toe Game</h1>
+    <body class="container-fluid">
+      <h1>Harry Potter Tic Tac Toe Game ⚡️</h1>
       <h2>I Solemnly Swear That I Am Up To No Good</h2>
       <!-- Instruction Button -->
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -49,7 +49,7 @@
 <nav>
 <div class="menuRow">
 <div class="panel">
-<p id='message'></p>
+<div class="message" id='message'></div>
 <!-- Sign Up -->
 <form id="sign-up">
         <fieldset>
@@ -105,26 +105,25 @@
 <div id="board">
 <table border="1">
 <tr>
-  <td class="square" id="1" onClick="nextMove(this)"></td>
-  <td class="square" id="2" onClick="nextMove(this)"></td>
-  <td class="square" id="3" onClick="nextMove(this)"></td>
+  <td class="square" id="0"></td>
+  <td class="square" id="1"></td>
+  <td class="square" id="2"></td>
 </tr>
 <tr>
-  <td class="square" id="4" onClick="nextMove(this)"></td>
-  <td class="square" id="5" onClick="nextMove(this)"></td>
-  <td class="square" id="6" onClick="nextMove(this)"></td>
+  <td class="square" id="3"></td>
+  <td class="square" id="4"></td>
+  <td class="square" id="5"></td>
 </tr>
 <tr>
-  <td class="square" id="7" onClick="nextMove(this)"></td>
-  <td class="square" id="8" onClick="nextMove(this)"></td>
-  <td class="square" id="9" onClick="nextMove(this)"></td>
+  <td class="square" id="6"></td>
+  <td class="square" id="7"></td>
+  <td class="square" id="8"></td>
 </tr>
 </table>
-<a href="javascript: startGame()"><button type="button" class="btn btn-primary btn-md">Mischeif Managed. Restart Game.</button></a>
+<button type="button" class="btn btn-primary btn-md" id="reset"> Mischeif Managed. Restart Game.</button>
 </div>
   <footer>Made By Stephanie Martin</footer>
   <a href="http://www.linkedin.com/in/stephcmartin" class="fa fa-linkedin"></a>
 <a href="http://www.github.com/stephcmartin" class="fa fa-github"></a>
-<script src="/assets/scripts/game.js"></script>
 </body>
 </html>

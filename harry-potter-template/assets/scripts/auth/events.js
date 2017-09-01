@@ -1,7 +1,14 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
+const game = require('../game')
 
 const api = require('./api')
 const ui = require('./ui')
+
+$(() => {
+  $('.square').on('click', game.fill)
+  $('#reset').on('click', game.newGame)
+}
+)
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
