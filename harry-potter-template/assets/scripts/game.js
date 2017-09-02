@@ -24,7 +24,6 @@ const fill = function (event) {
   // console.log(id)
   console.log(gameArray)
   if (gameArray[id] !== '') {
-    debugger
     console.log('This square is taken. Please choose another!')
     $('#message').text('This square is taken. Please choose another!')
   } else if (gameArray[id] === '' && turn === 'X') {
@@ -76,7 +75,7 @@ const checkForWinner = function (turn) {
      checkRow(2, 5, 8, turn) ||
      checkRow(0, 4, 8, turn) ||
      checkRow(2, 4, 6, turn) ||
-     checkRow(2, 4, 8, turn)) {
+     checkRow(0, 4, 8, turn)) {
     result = true
     hasWinner = true
     console.log('There is a winner')

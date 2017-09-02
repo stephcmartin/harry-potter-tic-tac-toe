@@ -15,6 +15,10 @@ const signInSuccess = function (data) {
   console.log(data)
   console.log('Successfully signed in!')
   $('#message').text('You have succesfully signed in!')
+  $('#new-game').click(function () {
+    $('#board').show()
+    event.preventDefault()
+  })
   store.user = data.user
 }
 
@@ -47,6 +51,19 @@ const signOutFailure = function (error) {
   $('#message').text('Error wtih signing out, buddy!')
 }
 
+// const createGameSuccess = function (data) {
+//   console.log(data)
+//   console.log('Successfully created game!')
+//   $('#message').text('You have succesfully signed in!')
+//   store.game = data.game
+//   console.log(store.data)
+// }
+//
+// const createGameFailure = function (error) {
+//   console.error(error)
+//   $('#message').text('Error with your game creation, buddy!')
+// }
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -56,4 +73,6 @@ module.exports = {
   changePasswordFailure,
   signOutSuccess,
   signOutFailure
+  // createGameSuccess,
+  // createGameFailure
 }

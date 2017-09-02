@@ -14,6 +14,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
+<img src=""/>
       <h1>Harry Potter Tic Tac Toe Game ⚡️</h1>
       <h2>I Solemnly Swear That I Am Up To No Good</h2>
       <!-- Instruction Button -->
@@ -33,11 +34,12 @@
             </div>
             <div class="modal-body">
               Two wizards play on 3x3 grid.
-              A wizard can put his/her spell (either X or O) in an empty cell in the grid.
-              If a wizard forms a row, a column or a diagonal with his/her spells, that player wins the duel and the game ends.
-              If the grid is full and there’s no row, column or diagonal of the same letter, the duel ends at draw.
-              A wizard should try to win in the lowest possible number of moves.
+              A wizard can put his/her spell (either X or O) in an empty cell in the grid.<br><br>
+              If a wizard forms a row, a column or a diagonal with his/her spells, that player wins the duel and the game ends.<br><br>
+              If the grid is full and there’s no row, column or diagonal of the same letter, the duel ends at draw.<br><br>
+              A wizard should try to win in the lowest possible number of moves.<br><br>
             </div>
+            <br>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
@@ -45,6 +47,7 @@
         </div>
       </div>
       <!-- Instruction Button End -->
+      <br>
       <div id="message"></div>
 <nav>
 <div class="menuRow">
@@ -53,7 +56,7 @@
 <!-- Sign Up -->
 <form id="sign-up">
         <fieldset>
-          <legend>Wizards, sign up here: </legend>
+          <legend><br>First Year Wizards, Sign Up Here: </legend>
           <input type="text" name="credentials[email]" placeholder="YOUR EMAIL">
           <input type="text" name="credentials[password]" placeholder="YOUR PASSWORD">
           <input type="text" name="credentials[password_confirmation]" placeholder="PASSWORD CONFIRMATION">
@@ -63,7 +66,7 @@
 <br>
       <form id="sign-in">
         <fieldset>
-          <legend>Sign in to your account:</legend>
+          <legend>Senior Wizards, Sign In To Your Account:</legend>
           <input type="text" name="credentials[email]" placeholder="YOUR EMAIL">
           <input type="text" name="credentials[password]" placeholder="YOUR PASSWORD">
           <input type="submit" name="submit" value="Sign in to your account!">
@@ -80,12 +83,16 @@
       <br>
       <form id="sign-out">
         <fieldset>
-          <legend>Sign Out Of Your Account</legend>
+          <legend></legend>
           <input type="submit" name="submit" value="Sign Out!">
         </fieldset>
       </form>
 <br>
 </div>
+<form id="new-game">
+  <legend>Wave Your Wand and Start A New Game</legend>
+<button type="submit" class="btn btn-secondary" id="newGameButton" value="New Game">Alohomora 🔑 </button>
+</form>
 </div>
 </nav>
 <!-- <div class="scoreboard">
@@ -122,7 +129,7 @@
 </table>
 <button type="button" class="btn btn-primary btn-md" id="reset"> Mischeif Managed. Restart Game.</button>
 </div>
-  <footer>Made By Stephanie Martin</footer>
+  <footer>Made By Root Wizard Stephanie Martin Connelly 🍩 </footer>
   <a href="http://www.linkedin.com/in/stephcmartin" class="fa fa-linkedin"></a>
 <a href="http://www.github.com/stephcmartin" class="fa fa-github"></a>
 </body>

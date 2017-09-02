@@ -10,6 +10,11 @@ $(() => {
 }
 )
 
+$('#new-game').click(function () {
+  $('#board').show()
+  event.preventDefault()
+})
+
 const onSignUp = function (event) {
   const data = getFormFields(this)
   console.log('This Worked!')
@@ -23,6 +28,7 @@ const onSignIn = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
   console.log('You have signed in!')
+  console.log(data)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
@@ -45,6 +51,20 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+// const onCreateGame = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   api.createGame(data)
+//     .then(ui.CreateGameSuccess)
+//     .catch(ui.CreateGameFailure)
+// }
+//
+// const onNewMove = function (event) {
+//   event.preventDefault()
+//   console.log('You have made a new move!')
+//     .then(api.newMove)
+// }
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#change-password').on('submit', onChangePassword)
@@ -53,9 +73,11 @@ const addHandlers = function () {
 }
 
 module.exports = {
-  addHandlers,
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  addHandlers
+  // onNewMove,
+  // onCreateGame
 }

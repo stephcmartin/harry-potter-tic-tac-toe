@@ -37,9 +37,33 @@ const signOut = function () {
   })
 }
 
+// const createGame = function (data) {
+//   return $.ajax({
+//     url: config.apiOrigin + '/games/',
+//     method: 'POST',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data
+//   })
+// }
+//
+// const newMove = function (data) {
+//   return $.ajax({
+//     url: config.apiOrigin + '/games' + store.game.id,
+//     method: 'PATCH',
+//     data,
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut
+  // createGame,
+  // newMove
 }
