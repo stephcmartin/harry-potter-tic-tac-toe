@@ -21,6 +21,9 @@ const onSignUp = function (event) {
   event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
+    .then($('#board').show())
+    .then($('#change-password').show())
+    .then($('#sign-out').show())
     .catch(ui.signUpFailure)
 }
 
@@ -31,6 +34,10 @@ const onSignIn = function (event) {
   console.log(data)
   api.signIn(data)
     .then(ui.signInSuccess)
+    .then($('#board').show())
+    .then($('#board').show())
+    .then($('#change-password').show())
+    .then($('#sign-out').show())
     .catch(ui.signInFailure)
 }
 const onChangePassword = function (event) {
@@ -48,6 +55,9 @@ const onSignOut = function (event) {
   console.log('You have signed out!')
   api.signOut()
     .then(ui.signOutSuccess)
+    .then($('#board').hide())
+    .then($('#change-password').hide())
+    .then($('#sign-out').hide())
     .catch(ui.signOutFailure)
 }
 

@@ -1,6 +1,10 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+img {
+  width:550px;
+}
+
 body {
   background-color: rgb(228, 201, 19);
   text-align: center;
@@ -54,6 +58,7 @@ button {
   display: none
 }
 
+// The 2 below need to be arranged to pop up after sign in sucess
 #change-password{
   display:none
 }

@@ -14,9 +14,10 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-<img src=""/>
+    <img src="img/HarryPotter.png">
       <h1>Harry Potter Tic Tac Toe Game ⚡️</h1>
       <h2>I Solemnly Swear That I Am Up To No Good</h2>
+
       <!-- Instruction Button -->
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Instructions
@@ -33,6 +34,7 @@
               </button>
             </div>
             <div class="modal-body">
+              <img src="img/swear.png">
               Two wizards play on 3x3 grid.
               A wizard can put his/her spell (either X or O) in an empty cell in the grid.<br><br>
               If a wizard forms a row, a column or a diagonal with his/her spells, that player wins the duel and the game ends.<br><br>
@@ -109,7 +111,9 @@
 </div> -->
 
 <br>
+<div id="bigBoard">
 <div id="board">
+  <img src="img/swear.png">
 <table border="1">
 <tr>
   <td class="square" id="0"></td>
@@ -128,6 +132,7 @@
 </tr>
 </table>
 <button type="button" class="btn btn-primary btn-md" id="reset"> Mischeif Managed. Restart Game.</button>
+</div>
 </div>
   <footer>Made By Root Wizard Stephanie Martin Connelly 🍩 </footer>
   <a href="http://www.linkedin.com/in/stephcmartin" class="fa fa-linkedin"></a>

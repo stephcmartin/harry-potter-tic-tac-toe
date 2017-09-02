@@ -4,6 +4,8 @@ const signUpSuccess = function (data) {
   console.log(data)
   console.log('Successfully signed up!')
   $('#message').text('You have succesfully signed up!')
+  // This doesn't work yet - need to create a logic that 'shows board' after signup
+  $('#board').show()
 }
 
 const signUpFailure = function (error) {
@@ -15,10 +17,7 @@ const signInSuccess = function (data) {
   console.log(data)
   console.log('Successfully signed in!')
   $('#message').text('You have succesfully signed in!')
-  $('#new-game').click(function () {
-    $('#board').show()
-    event.preventDefault()
-  })
+  $('#board').show()
   store.user = data.user
 }
 
