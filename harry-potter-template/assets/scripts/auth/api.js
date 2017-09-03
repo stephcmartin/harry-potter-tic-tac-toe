@@ -37,33 +37,52 @@ const signOut = function () {
   })
 }
 
-// const createGame = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games/',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data
-//   })
-// }
-//
-// const newMove = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games' + store.game.id,
-//     method: 'PATCH',
-//     data,
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const createGame = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'POST',
+    data: '{}',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const newMove = function (id, turn, hasWinner, hasDraw) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.gameStore,
+    method: 'PATCH',
+    data: {
+      'game': {
+        'cell': {
+          'index': id,
+          'value': turn
+        },
+        'over': hasWinner || hasDraw
+      }
+    },
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const gameHistory = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
-  // createGame,
-  // newMove
+  signOut,
+  createGame,
+  newMove,
+  gameHistory
 }

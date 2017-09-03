@@ -17,7 +17,7 @@ $('#new-game').click(function () {
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
-  console.log('This Worked!')
+  console.log('Signed Up Worked!')
   event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
@@ -38,6 +38,8 @@ const onSignIn = function (event) {
     .then($('#board').show())
     .then($('#change-password').show())
     .then($('#sign-out').show())
+    .then(api.createGame)
+    .then(ui.createGameSuccess)
     .catch(ui.signInFailure)
 }
 const onChangePassword = function (event) {
@@ -61,25 +63,35 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-// const onCreateGame = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   api.createGame(data)
-//     .then(ui.CreateGameSuccess)
-//     .catch(ui.CreateGameFailure)
-// }
-//
-// const onNewMove = function (event) {
-//   event.preventDefault()
-//   console.log('You have made a new move!')
-//     .then(api.newMove)
-// }
+const onCreateGame = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log('onCreateGame function works.')
+  api.createGame(data)
+    .then(ui.CreateGameSuccess)
+    .catch(ui.CreateGameFailure)
+}
+
+const onNewMove = function (event) {
+  event.preventDefault()
+  console.log('You have made a new move!')
+    .then(api.newMove)
+}
+
+const onGameHistory = function (event) {
+  event.preventDefault()
+  console.log('Game History Was pressed')
+  api.gameHistory()
+    .then(ui.getGameHistorySuccess)
+    .catch(ui.getGameHistoryFailure)
+}
 
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   $('#sign-in').on('submit', onSignIn)
+  $('#games-history').on('submit', onGameHistory)
 }
 
 module.exports = {
@@ -87,7 +99,8 @@ module.exports = {
   onSignIn,
   onChangePassword,
   onSignOut,
-  addHandlers
-  // onNewMove,
-  // onCreateGame
+  addHandlers,
+  onNewMove,
+  onCreateGame,
+  onGameHistory
 }

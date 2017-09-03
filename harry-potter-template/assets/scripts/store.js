@@ -2,5 +2,10 @@
 
 const store = {
 }
+const gameStore = {
+}
 
-module.exports = store
+module.exports = {
+  store,
+  gameStore
+}

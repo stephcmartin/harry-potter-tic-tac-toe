@@ -4,7 +4,7 @@ const signUpSuccess = function (data) {
   console.log(data)
   console.log('Successfully signed up!')
   $('#message').text('You have succesfully signed up!')
-  // This doesn't work yet - need to create a logic that 'shows board' after signup
+  // This doesn't really work yet - need to create a logic that 'shows board' after signup
   $('#board').show()
 }
 
@@ -16,7 +16,7 @@ const signUpFailure = function (error) {
 const signInSuccess = function (data) {
   console.log(data)
   console.log('Successfully signed in!')
-  $('#message').text('You have succesfully signed in!')
+  $('#message').text('Aparecium! You have succesfully signed in!')
   $('#board').show()
   store.user = data.user
 }
@@ -28,7 +28,7 @@ const signInFailure = function (error) {
 
 const changePasswordSuccess = function () {
   console.log('Successfully changed password!')
-  $('#message').text('You have succesfully changed password!')
+  $('#message').text('Aparecium! You have succesfully changed password!')
 }
 
 const changePasswordFailure = function (error) {
@@ -50,18 +50,28 @@ const signOutFailure = function (error) {
   $('#message').text('Error wtih signing out, buddy!')
 }
 
-// const createGameSuccess = function (data) {
-//   console.log(data)
-//   console.log('Successfully created game!')
-//   $('#message').text('You have succesfully signed in!')
-//   store.game = data.game
-//   console.log(store.data)
-// }
-//
-// const createGameFailure = function (error) {
-//   console.error(error)
-//   $('#message').text('Error with your game creation, buddy!')
-// }
+const createGameSuccess = function (data) {
+  console.log('Aberto! You have created a new game succesfully')
+  console.log(data)
+  store.gameStore = data.game.id
+}
+
+const createGameFailure = function (error) {
+  console.error(error)
+  $('#message').text('Error with your game creation, ya Wizard!')
+}
+
+const getGameHistorySuccess = function (data) {
+  console.log(data)
+  console.log('You have your game history')
+  $('#message').text('You have your game history succesfully retrived.')
+}
+
+const getGameHistoryFailure = function (error) {
+  console.error(error)
+  console.log('You Failed At Getting Your Game History Games')
+  $('#message').text('You Failed At Getting Your Game History.')
+}
 
 module.exports = {
   signUpSuccess,
@@ -71,7 +81,9 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
-  // createGameSuccess,
-  // createGameFailure
+  signOutFailure,
+  createGameSuccess,
+  createGameFailure,
+  getGameHistorySuccess,
+  getGameHistoryFailure
 }

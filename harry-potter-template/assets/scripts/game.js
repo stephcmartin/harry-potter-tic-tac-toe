@@ -18,6 +18,7 @@ let gameArray = ['', '', '', '', '', '', '', '', '']
 console.log(gameArray)
 let turn = 'X'
 let hasWinner = false
+let hasDraw = false
 
 const fill = function (event) {
   const id = $(this).attr('id')
@@ -90,6 +91,7 @@ const checkForDraw = function () {
   gameArray[3] !== '' && gameArray[4] !== '' && gameArray[5] !== '' &&
   gameArray[6] !== '' && gameArray[7] !== '' && gameArray[8] !== '') {
     $('#message').text('Wizards, recast your spell. No one wins the duel.')
+    hasDraw = true
   }
 }
 
@@ -118,5 +120,7 @@ module.exports = {
   checkRow,
   checkForDraw,
   reset,
-  newGame
+  newGame,
+  hasDraw,
+  hasWinner
 }
