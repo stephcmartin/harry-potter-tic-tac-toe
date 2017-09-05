@@ -16,7 +16,7 @@ body {
 
 .panel {
   background-color: rgb(242, 255, 181);
-  border: 2px solid;
+  border: 3px solid;
 }
 
 .square {
@@ -64,5 +64,9 @@ button {
 }
 
 #sign-out{
+display:none
+}
+
+#games-history {
 display:none
 }

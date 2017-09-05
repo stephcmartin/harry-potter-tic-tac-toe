@@ -10,10 +10,10 @@ $(() => {
 }
 )
 
-$('#new-game').click(function () {
-  $('#board').show()
-  event.preventDefault()
-})
+// $('#new-game').click(function () {
+//   $('#board').show()
+//   event.preventDefault()
+// })
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
@@ -24,6 +24,7 @@ const onSignUp = function (event) {
     .then($('#board').show())
     .then($('#change-password').show())
     .then($('#sign-out').show())
+    .then($('#games-history').show())
     .catch(ui.signUpFailure)
 }
 
@@ -38,6 +39,7 @@ const onSignIn = function (event) {
     .then($('#board').show())
     .then($('#change-password').show())
     .then($('#sign-out').show())
+    .then($('#games-history').show())
     .then(api.createGame)
     .then(ui.createGameSuccess)
     .catch(ui.signInFailure)
@@ -49,6 +51,7 @@ const onChangePassword = function (event) {
   event.preventDefault()
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
+    .then($('#games-history').show())
     .catch(ui.changePasswordFailure)
 }
 
@@ -69,6 +72,7 @@ const onCreateGame = function (event) {
   console.log('onCreateGame function works.')
   api.createGame(data)
     .then(ui.CreateGameSuccess)
+    .then($('#games-history').show())
     .catch(ui.CreateGameFailure)
 }
 
