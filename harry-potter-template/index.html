@@ -61,8 +61,8 @@
         <fieldset>
           <legend><br>First Year Wizards, Sign Up Here: </legend>
           <input type="text" name="credentials[email]" placeholder="YOUR EMAIL">
-          <input type="text" name="credentials[password]" placeholder="YOUR PASSWORD">
-          <input type="text" name="credentials[password_confirmation]" placeholder="PASSWORD CONFIRMATION">
+          <input type="password" name="credentials[password]" placeholder="YOUR PASSWORD">
+          <input type="password" name="credentials[password_confirmation]" placeholder="PASSWORD CONFIRMATION">
           <input type="submit" name="submit" value="Sign up!">
         </fieldset>
 </form>
@@ -71,15 +71,15 @@
         <fieldset>
           <legend>Senior Wizards, Sign In To Your Account:</legend>
           <input type="text" name="credentials[email]" placeholder="YOUR EMAIL">
-          <input type="text" name="credentials[password]" placeholder="YOUR PASSWORD">
+          <input type="password" name="credentials[password]" placeholder="YOUR PASSWORD">
           <input type="submit" name="submit" value="Sign in to your account!">
         </fieldset>
       </form>
       <form id="change-password">
         <fieldset>
           <legend>Change your password:</legend>
-          <input type="text" name="passwords[old]" placeholder="YOUR OLD PASSWORD">
-          <input type="text" name="passwords[new]" placeholder="YOUR NEW PASSWORD">
+          <input type="password" name="passwords[old]" placeholder="YOUR OLD PASSWORD">
+          <input type="password" name="passwords[new]" placeholder="YOUR NEW PASSWORD">
           <input type="submit" name="submit" value="Change your password!">
         </fieldset>
       </form>
@@ -98,6 +98,11 @@
 </form> -->
 <form class ="games" id ="games-history">
 <button type="submit" class="btn btn-default"> Alohomora 🔑 Get Game History</button>
+</form>
+<br>
+<form class ="games" id ="new-game-button">
+  Cast a new spell:<br>
+<button type="submit" class="btn btn-default">Start A New Game ⚡️ </button>
 </form>
 </div>
 </nav>
@@ -135,7 +140,7 @@
   <td class="square" id="8"></td>
 </tr>
 </table>
-<button type="button" class="btn btn-primary btn-md" id="reset"> Mischeif Managed. Restart Game.</button>
+<!-- <button type="button" class="btn btn-primary btn-md" id="reset"> Mischeif Managed. Restart Game.</button> -->
 </div>
 </div>
   <footer>Made By Root Wizard Stephanie Martin Connelly 🍩 </footer>

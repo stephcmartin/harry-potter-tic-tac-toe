@@ -7,7 +7,7 @@ const ui = require('./ui')
 
 $(() => {
   $('.square').on('click', game.fill)
-  $('#reset').on('click', game.newGame)
+  // $('#reset').on('click', game.newGame)
 }
 )
 
@@ -40,8 +40,8 @@ const onSignIn = function (event) {
     // .then($('#change-password').show())
     // .then($('#sign-out').show())
     // .then($('#games-history').show())
-    .then(api.createGame)
-    .then(ui.createGameSuccess)
+    // .then(api.createGame)
+    // .then(ui.createGameSuccess)
     .catch(ui.signInFailure)
 }
 const onChangePassword = function (event) {
@@ -67,26 +67,25 @@ const onSignOut = function (event) {
 }
 
 const onCreateGame = function (event) {
-  event.preventDefault()
-  const data = getFormFields(event.target)
   console.log('onCreateGame function works.')
-  api.createGame(data)
-    .then(ui.CreateGameSuccess)
+  api.createGame()
+    .then(ui.createGameSuccess)
     .then($('#games-history').show())
-    .catch(ui.CreateGameFailure)
+    .catch(ui.createGameFailure)
 }
 
 const onNewMove = function (event) {
   event.preventDefault()
   console.log('You have made a new move!')
-  const gameOver = game.hasWinner
+  const gameOver = store.gameOver
+  console.log(gameOver)
   const indexOfCell = $(event.target).attr('id')
   const player = $(event.target).text()
   console.log(gameOver, indexOfCell, player)
-  console.log(store.user)
+  console.log(store)
   api.newMove(gameOver, indexOfCell, player)
-    .then(ui.newGameSuccess)
-    .catch(ui.newGameFailure)
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
 }
 
 const onGameHistory = function (event) {
@@ -104,6 +103,11 @@ const addHandlers = function () {
   $('#sign-in').on('submit', onSignIn)
   $('#games-history').on('submit', onGameHistory)
   $('.square').on('click', onNewMove)
+  $('#new-game-button').on('click', () => {
+    onCreateGame()
+    game.newGame()
+    $('#board').show()
+  })
 }
 
 module.exports = {

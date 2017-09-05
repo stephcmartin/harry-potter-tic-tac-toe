@@ -50,7 +50,7 @@ const createGame = function () {
 
 const newMove = function (gameOver, indexOfCell, player) {
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.gameStore,
+    url: config.apiOrigin + '/games/' + store.gameStore.id,
     method: 'PATCH',
     data: {
       'game': {

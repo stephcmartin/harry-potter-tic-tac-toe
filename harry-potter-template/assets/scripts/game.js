@@ -1,23 +1,10 @@
 'use strict'
-// using the API library we know that we need to have the following functions to deploy.
-// const gameBegin = function () {
-//   const game = {
-//     id: null,
-//     square: ['', '', '', '', '', '', '', '', ''],
-//     over: false,
-//     player_x: '',
-//     player_o: '',
-//     currentPlayer: 'X',
-//     togglePlayer: function () {
-//       this.currentPlayer = (this.currentPlayer === 'X' ? 'O' : 'X')
-//     }
-//   }
-//   return game
-// }
+// const game = require('./game')
+const store = require('./store')
+
 let gameArray = ['', '', '', '', '', '', '', '', '']
 console.log(gameArray)
 let turn = 'X'
-let hasWinner = false
 let hasDraw = false
 
 const fill = function (event) {
@@ -78,7 +65,7 @@ const checkForWinner = function (turn) {
      checkRow(2, 4, 6, turn) ||
      checkRow(0, 4, 8, turn)) {
     result = true
-    hasWinner = true
+    store.gameOver = true
     console.log('There is a winner')
     $('#message').text('Mischeif Managed! ' + turn + ' is the winner!')
     $('.square').off()
@@ -99,7 +86,7 @@ const reset = function () {
   console.log('Mischeif Managed!')
   turn = 'X'
   gameArray = ['', '', '', '', '', '', '', '', '']
-  hasWinner = false
+  store.gameOver = false
   $('.square').text('')
   $('#message').text('')
   $('#message').text('Wizard X, please cast your spell!')
@@ -108,7 +95,7 @@ const reset = function () {
 
 const newGame = function () {
   event.preventDefault()
-  if (hasWinner === true) {
+  if (store.gameOver === true) {
     $('.square').on('click', fill)
   }
   reset()
@@ -122,6 +109,5 @@ module.exports = {
   reset,
   newGame,
   hasDraw,
-  hasWinner,
   turn
 }
