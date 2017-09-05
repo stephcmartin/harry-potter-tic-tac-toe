@@ -2,6 +2,7 @@ const store = require('../store')
 
 const signUpSuccess = function (data) {
   console.log(data)
+  store.user = data.user
   console.log('Successfully signed up!')
   $('#message').text('You have succesfully signed up!')
   // This doesn't really work yet - need to create a logic that 'shows board' after signup
@@ -41,6 +42,7 @@ const signOutSuccess = function (data) {
   console.log('Successfully changed password!')
   $('#message').text('You have succesfully signed out!')
   store.user = null
+  store.game = null
   console.log(store.user)
 }
 
@@ -62,9 +64,9 @@ const createGameFailure = function (error) {
 }
 
 const getGameHistorySuccess = function (data) {
-  console.log(data)
+  store.games = data.games
   console.log('You have your game history')
-  $('#message').text('You have your game history succesfully retrived.')
+  $('#message').text(JSON.stringify(store.games.length) + ' games have been played.')
 }
 
 const getGameHistoryFailure = function (error) {
