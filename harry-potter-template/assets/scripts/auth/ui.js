@@ -5,8 +5,10 @@ const signUpSuccess = function (data) {
   store.user = data.user
   console.log('Successfully signed up!')
   $('#message').text('You have succesfully signed up!')
-  // This doesn't really work yet - need to create a logic that 'shows board' after signup
   $('#board').show()
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('#games-history').show()
 }
 
 const signUpFailure = function (error) {
@@ -19,12 +21,19 @@ const signInSuccess = function (data) {
   console.log('Successfully signed in!')
   $('#message').text('Aparecium! You have succesfully signed in!')
   $('#board').show()
+  $('#board').show()
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('#games-history').show()
   store.user = data.user
 }
 
 const signInFailure = function (error) {
   console.error(error)
   $('#message').text('Error with your login, buddy!')
+    .then($('#board').hide())
+    .then($('#change-password').hide())
+    .then($('#sign-out').hide())
 }
 
 const changePasswordSuccess = function () {
@@ -35,6 +44,9 @@ const changePasswordSuccess = function () {
 const changePasswordFailure = function (error) {
   console.error(error)
   $('#message').text('Error wtih changing your password, buddy!')
+    .then($('#board').hide())
+    .then($('#change-password').hide())
+    .then($('#sign-out').hide())
 }
 
 const signOutSuccess = function (data) {
@@ -50,6 +62,9 @@ const signOutFailure = function (error) {
   console.log(error)
   console.error(error)
   $('#message').text('Error wtih signing out, buddy!')
+    .then($('#board').hide())
+    .then($('#change-password').hide())
+    .then($('#sign-out').hide())
 }
 
 const createGameSuccess = function (data) {
@@ -65,6 +80,7 @@ const createGameFailure = function (error) {
 
 const getGameHistorySuccess = function (data) {
   store.games = data.games
+  console.log(data.games)
   console.log('You have your game history')
   $('#message').text(JSON.stringify(store.games.length) + ' games have been played.')
 }
