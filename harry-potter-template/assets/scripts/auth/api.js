@@ -48,17 +48,17 @@ const createGame = function () {
   })
 }
 
-const newMove = function (id, turn, hasWinner, hasDraw) {
+const newMove = function (gameOver, indexOfCell, player) {
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.gameStore,
     method: 'PATCH',
     data: {
       'game': {
         'cell': {
-          'index': id,
-          'value': turn
+          'index': indexOfCell,
+          'value': player
         },
-        'over': hasWinner || hasDraw
+        'over': gameOver
       }
     },
     headers: {

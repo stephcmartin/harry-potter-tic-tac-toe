@@ -1,5 +1,6 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const game = require('../game')
+const store = require('../store')
 
 const api = require('./api')
 const ui = require('./ui')
@@ -17,7 +18,7 @@ $(() => {
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
-  console.log('Signed Up Worked!')
+  // console.log('Signed Up Worked!')
   event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
@@ -31,7 +32,7 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log('You have signed in!')
+  // console.log('You have signed in!')
   console.log(data)
   api.signIn(data)
     .then(ui.signInSuccess)
@@ -47,7 +48,7 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   const data = getFormFields(this)
   console.log(data)
-  console.log('You have changed password!')
+  // console.log('You have changed password!')
   event.preventDefault()
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
@@ -57,7 +58,7 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log('You have signed out!')
+  // console.log('You have signed out!')
   api.signOut()
     .then(ui.signOutSuccess)
     .then($('#board').hide())
@@ -79,7 +80,14 @@ const onCreateGame = function (event) {
 const onNewMove = function (event) {
   event.preventDefault()
   console.log('You have made a new move!')
-    .then(api.newMove)
+  const gameOver = game.hasWinner
+  const indexOfCell = $(event.target).attr('id')
+  const player = $(event.target).text()
+  console.log(gameOver, indexOfCell, player)
+  console.log(store.user)
+  api.newMove(gameOver, indexOfCell, player)
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
 }
 
 const onGameHistory = function (event) {
@@ -96,6 +104,7 @@ const addHandlers = function () {
   $('#sign-out').on('submit', onSignOut)
   $('#sign-in').on('submit', onSignIn)
   $('#games-history').on('submit', onGameHistory)
+  $('.square').on('click', onNewMove)
 }
 
 module.exports = {

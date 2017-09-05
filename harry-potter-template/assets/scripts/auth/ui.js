@@ -73,6 +73,18 @@ const getGameHistoryFailure = function (error) {
   $('#message').text('You Failed At Getting Your Game History.')
 }
 
+const newGameSuccess = function (data) {
+  console.log(data)
+  console.log('You have patched in your game status')
+  store.gameStore = data.game.id
+}
+
+const newGameFailure = function (error) {
+  console.error(error)
+  console.log('You Failed At Getting Your Game History Games')
+  $('#message').text('You have failed to patch in your game status')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -85,5 +97,7 @@ module.exports = {
   createGameSuccess,
   createGameFailure,
   getGameHistorySuccess,
-  getGameHistoryFailure
+  getGameHistoryFailure,
+  newGameSuccess,
+  newGameFailure
 }

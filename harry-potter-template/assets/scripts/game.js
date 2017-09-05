@@ -122,5 +122,6 @@ module.exports = {
   reset,
   newGame,
   hasDraw,
-  hasWinner
+  hasWinner,
+  turn
 }
