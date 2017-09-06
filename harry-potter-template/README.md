@@ -4,7 +4,7 @@ Timeline: 6 days
 
 # My Development Process:
 1.) Game Logic<br>
-I began with creating the game logic to implement the game. However, I wrote my game using the DOM instead of storing my data in the arrays on the first day. Luckily, I had allocated 2 days to create my basic game function and had enough time to craft up a simole tic tac toe game function. I also used the checkForWinner function from my old code and imported it into my new code.<br>
+I began with creating the game logic to implement the game. However, I wrote my game using the DOM instead of storing my data in the arrays on the first day. [This a look at my old code here](https://github.com/stephcmartin/harry-potter-tic-tac-toe/blob/master/harry-potter-template/assets/scripts/oldDomGameLogic.js). <br>Luckily, I had allocated 2 days to create my basic game function and had enough time to craft up a simole tic tac toe game function. I also used the checkForWinner function from my old code and imported it into my new code.<br>
 2.) Building the Game UI<br>
 I created a workable gameboard representation which handled user actions. I had wanted to use bootstrap to make it responsive. However - I realised I could use a table, too. I therefore created 3 rows with 3 squares each. <br>
 3.) Implementing Authentication<br>
