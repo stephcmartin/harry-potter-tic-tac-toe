@@ -1,14 +1,16 @@
 Timeline: 6 days
+# Try and play my game:
+[Click Here for demo](https://stephcmartin.github.io/harry-potter-tic-tac-toe/harry-potter-template/
 
 # My Development Process:
-1.) Game Logic
-I began with creating the game logic to implement the game. However, I wrote my game using the DOM instead of storing my data in the arrays on the first day. Luckily, I had allocated 2 days to create my basic game function and had enough time to craft up a simole tic tac toe game function.
-2.) Building the Game UI
-I created a workable gameboard representation which handled user actions.
-3.) Implementing Authentication
-I followed the Authentication template repo we worked on in class and changed some code to fit my authentication UI implementation. I had allocated 2 days to create this part. In reality this took 4 days and a ton of issue queue.
-4.) Linking the Game to the Games API
-I struggled a lot without linking up the game files to the auth files. There was a lot of ground that we didn’t cover in class that was needed to make things work. Issue queues became my best friend.
+1.) Game Logic<br>
+I began with creating the game logic to implement the game. However, I wrote my game using the DOM instead of storing my data in the arrays on the first day. Luckily, I had allocated 2 days to create my basic game function and had enough time to craft up a simole tic tac toe game function. I also used the checkForWinner function from my old code and imported it into my new code.<br>
+2.) Building the Game UI<br>
+I created a workable gameboard representation which handled user actions. I had wanted to use bootstrap to make it responsive. However - I realised I could use a table, too. I therefore created 3 rows with 3 squares each. <br>
+3.) Implementing Authentication<br>
+I followed the Authentication template repo we worked on in class and changed some code to fit my authentication UI implementation.<br>
+4.) Linking the Game to the Games API<br>
+I struggled a lot without linking up the game files to the auth files. I had allocated 2 days to create this part. In reality this took 4 days and a ton of issue queue. There was a lot of ground that we didn’t cover in class that was needed to make things work. Issue queues became my best friend.<br>
 
 # Basic functions that were needed in my game:
 * A set of states of the game. In our game, each state would represent a certain configuration of the grid.
@@ -43,20 +45,26 @@ I struggled a lot without linking up the game files to the auth files. There was
 7. As a user, I want to be able to log out.
 
 # Some Basic Game Code Logic that I knew I needed:
-* checkIfLegal
-* changeBoard
+* checkIfLegal - to see if the move can be made/if the square has been taken
+* changeBoard - update board after each move
 * displayBoard after change
-* changePlayer
-* Winner - use if else statement of an array
+* changePlayer - between X and O
+* checkForWinner
 * checkIfTie
 
+# My wireframe
+[Take a look at my wireframe here](https://imgur.com/a/ey76B)
+
 # Things I didn't know I would need:
-* How to PATCH
+* How to PATCH after every move - i.e the serve needs to know who has made a move and what was moved. This single handedly was the hardest part of the game.
 * How to stringify a JSON object to display 'how many games have been played'
-* What store actually is and how to use it.
+* What STORE actually is and how to use it.
+* How to upload images that can be deployed. (I now know it has to be in the root directory.)
 
 # Code I am most proud of:
-1.) Making a PATCH request every time a move is made on the board:
+1.) Making a PATCH request every time a move is made on the board. I needed 3 different inputs that went into the function.
+
+```js
 const newMove = function (gameOver, indexOfCell, player) {
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.gameStore.id,
@@ -75,8 +83,10 @@ const newMove = function (gameOver, indexOfCell, player) {
     }
   })
 }
+```
 
-2.) My check for winner and check for draw functions:
+2.) My check for winner and check for draw functions. I updated this from my old code that uterlised the DOM to play.
+```js
 const checkRow = function (a, b, c, turn) {
   let result = false
   if (gameArray[a] === turn && gameArray[b] === turn && gameArray[c] === turn) {
@@ -117,3 +127,4 @@ const checkForDraw = function () {
     hasDraw = true
   }
 }
+```
