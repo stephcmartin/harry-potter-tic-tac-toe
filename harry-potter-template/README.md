@@ -43,8 +43,21 @@ User Stories:
 6. As a user, I want to be able to change my password
 7. As a user, I want to be able to log out.
 
-Instructions:
-Two wizards play on 3x3 grid. A wizard can put his/her spell (either X or O) in an empty cell in the grid.
-<br>If a wizard forms a row, a column or a diagonal with his/her spells, that player wins the duel and the game ends.
-<br>If the grid is full and there’s no row, column or diagonal of the same letter, the duel ends at draw.
-<br>A wizard should try to win in the lowest possible number of moves.
+Functions that we will need:
+* A set of states of the game. In our game, each state would represent a certain configuration of the grid.
+* 2 players which are the agents playing the game. In Tic-Tac-Toe there’s only two players: the human player and the AI.
+* A finite set of actions: only one action a player can do which is put his/her letter on an empty cell.
+* A transition function: takes the current state and the played action and returns the next state in the game.
+* A terminal test function that checks if a state is terminal/ if there is a winner.
+* A score function that calculates the score of the player at a terminal state.
+
+Some Game Code Logic:
+* checkIfLegal
+* changeBoard
+* displayBoard after change
+* changePlayer
+<!-- public char changePlayer(char player) {
+    return player == 'o' ? 'x' : 'o';
+}  -->
+* checkIfWinner - use if else statement of an array
+* checkIfTie
