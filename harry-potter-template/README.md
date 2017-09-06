@@ -1,16 +1,16 @@
 Timeline: 6 days
 
-Development Process:
-#1 Game Logic
-I began with creating the game logic to implement the game. However, I wrote my game using the DOM instead of storing my data in the arrays. Luckily, I had allocated 2 days to create my basic game function.
-#2 Building the Game UI
+##My Development Process:
+1.) Game Logic
+I began with creating the game logic to implement the game. However, I wrote my game using the DOM instead of storing my data in the arrays on the first day. Luckily, I had allocated 2 days to create my basic game function and had enough time to craft up a simole tic tac toe game function.
+2.) Building the Game UI
 I created a workable gameboard representation which handled user actions.
-#3 Implementing Authentication
-I followed the Authentication template repo we worked on in class and changed some code to fit my authentication UI implementation. I had allocated 2 days to create this part.
-#4 Linking the Game to the Games API
+3.) Implementing Authentication
+I followed the Authentication template repo we worked on in class and changed some code to fit my authentication UI implementation. I had allocated 2 days to create this part. In reality this took 4 days and a ton of issue queue.
+4.) Linking the Game to the Games API
 I struggled a lot without linking up the game files to the auth files. There was a lot of ground that we didn’t cover in class that was needed to make things work. Issue queues became my best friend.
 
-Functions that were needed:
+Basic functions that were needed in my game:
 * A set of states of the game. In our game, each state would represent a certain configuration of the grid.
 * 2 players which are the agents playing the game. In Tic-Tac-Toe there’s only two players: the human player and the AI.
 * A finite set of actions: only one action a player can do which is put his/her letter on an empty cell.
@@ -18,7 +18,7 @@ Functions that were needed:
 * A terminal test function that checks if a state is terminal/ if there is a winner.
 * A score function that calculates the score of the player at a terminal state.
 
-Technologies Use:
+#Technologies Use:
 * Client
     * jQuery - For UI manipulation and AJAX calls
     * SASS
@@ -33,8 +33,7 @@ Technologies Use:
     * Git
     * Github
 
-User Stories:
-
+#User Stories:
 1. As a user, I want to play tic-tac-toe with my friend on the same computer.
 2. As a user, I want to register log-in so that I can save and track my games.
 3. As a user, I want to track my past game data As a user.
@@ -43,21 +42,78 @@ User Stories:
 6. As a user, I want to be able to change my password
 7. As a user, I want to be able to log out.
 
-Functions that we will need:
-* A set of states of the game. In our game, each state would represent a certain configuration of the grid.
-* 2 players which are the agents playing the game. In Tic-Tac-Toe there’s only two players: the human player and the AI.
-* A finite set of actions: only one action a player can do which is put his/her letter on an empty cell.
-* A transition function: takes the current state and the played action and returns the next state in the game.
-* A terminal test function that checks if a state is terminal/ if there is a winner.
-* A score function that calculates the score of the player at a terminal state.
-
-Some Game Code Logic:
+#Some Basic Game Code Logic that I knew I needed:
 * checkIfLegal
 * changeBoard
 * displayBoard after change
 * changePlayer
-<!-- public char changePlayer(char player) {
-    return player == 'o' ? 'x' : 'o';
-}  -->
-* checkIfWinner - use if else statement of an array
+* Winner - use if else statement of an array
 * checkIfTie
+
+#Things I didn't know I would need:
+* How to PATCH
+* How to stringify a JSON object to display 'how many games have been played'
+* What store actually is and how to use it.
+
+#Code I am most proud of:
+1.) Making a PATCH request every time a move is made on the board:
+const newMove = function (gameOver, indexOfCell, player) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.gameStore.id,
+    method: 'PATCH',
+    data: {
+      'game': {
+        'cell': {
+          'index': indexOfCell,
+          'value': player
+        },
+        'over': gameOver
+      }
+    },
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+2.) My check for winner and check for draw functions:
+const checkRow = function (a, b, c, turn) {
+  let result = false
+  if (gameArray[a] === turn && gameArray[b] === turn && gameArray[c] === turn) {
+    result = true
+    $('.square').off()
+  }
+  return result
+}
+
+const checkForWinner = function (turn) {
+  // console.log('checkWinner()')
+  // console.log(gameArray)
+  // console.log(turn)
+  let result = false
+  if (checkRow(0, 1, 2, turn) ||
+     checkRow(3, 4, 5, turn) ||
+     checkRow(6, 7, 8, turn) ||
+     checkRow(0, 3, 6, turn) ||
+     checkRow(1, 4, 7, turn) ||
+     checkRow(2, 5, 8, turn) ||
+     checkRow(0, 4, 8, turn) ||
+     checkRow(2, 4, 6, turn) ||
+     checkRow(0, 4, 8, turn)) {
+    result = true
+    store.gameOver = true
+    // console.log('There is a winner')
+    $('#message').text('Mischeif Managed! ' + turn + ' is the winner!')
+    $('.square').off()
+  }
+  return result
+}
+
+const checkForDraw = function () {
+  if (gameArray[0] !== '' && gameArray[1] !== '' && gameArray[2] !== '' &&
+  gameArray[3] !== '' && gameArray[4] !== '' && gameArray[5] !== '' &&
+  gameArray[6] !== '' && gameArray[7] !== '' && gameArray[8] !== '') {
+    $('#message').text('Wizards, recast your spell. No one wins the duel.')
+    hasDraw = true
+  }
+}
