@@ -1,6 +1,6 @@
 Timeline: 6 days
 
-##My Development Process:
+# My Development Process:
 1.) Game Logic
 I began with creating the game logic to implement the game. However, I wrote my game using the DOM instead of storing my data in the arrays on the first day. Luckily, I had allocated 2 days to create my basic game function and had enough time to craft up a simole tic tac toe game function.
 2.) Building the Game UI
@@ -10,7 +10,7 @@ I followed the Authentication template repo we worked on in class and changed so
 4.) Linking the Game to the Games API
 I struggled a lot without linking up the game files to the auth files. There was a lot of ground that we didn’t cover in class that was needed to make things work. Issue queues became my best friend.
 
-Basic functions that were needed in my game:
+# Basic functions that were needed in my game:
 * A set of states of the game. In our game, each state would represent a certain configuration of the grid.
 * 2 players which are the agents playing the game. In Tic-Tac-Toe there’s only two players: the human player and the AI.
 * A finite set of actions: only one action a player can do which is put his/her letter on an empty cell.
@@ -18,7 +18,7 @@ Basic functions that were needed in my game:
 * A terminal test function that checks if a state is terminal/ if there is a winner.
 * A score function that calculates the score of the player at a terminal state.
 
-#Technologies Use:
+# Technologies Use:
 * Client
     * jQuery - For UI manipulation and AJAX calls
     * SASS
@@ -33,7 +33,7 @@ Basic functions that were needed in my game:
     * Git
     * Github
 
-#User Stories:
+# User Stories:
 1. As a user, I want to play tic-tac-toe with my friend on the same computer.
 2. As a user, I want to register log-in so that I can save and track my games.
 3. As a user, I want to track my past game data As a user.
@@ -42,7 +42,7 @@ Basic functions that were needed in my game:
 6. As a user, I want to be able to change my password
 7. As a user, I want to be able to log out.
 
-#Some Basic Game Code Logic that I knew I needed:
+# Some Basic Game Code Logic that I knew I needed:
 * checkIfLegal
 * changeBoard
 * displayBoard after change
@@ -50,12 +50,12 @@ Basic functions that were needed in my game:
 * Winner - use if else statement of an array
 * checkIfTie
 
-#Things I didn't know I would need:
+# Things I didn't know I would need:
 * How to PATCH
 * How to stringify a JSON object to display 'how many games have been played'
 * What store actually is and how to use it.
 
-#Code I am most proud of:
+# Code I am most proud of:
 1.) Making a PATCH request every time a move is made on the board:
 const newMove = function (gameOver, indexOfCell, player) {
   return $.ajax({
