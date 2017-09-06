@@ -1,6 +1,6 @@
 Timeline: 6 days
 # Try and play my game:
-[Click Here for demo](https://stephcmartin.github.io/harry-potter-tic-tac-toe/harry-potter-template/
+[Click Here for demo](https://stephcmartin.github.io/harry-potter-tic-tac-toe/harry-potter-template/)
 
 # My Development Process:
 1.) Game Logic<br>
