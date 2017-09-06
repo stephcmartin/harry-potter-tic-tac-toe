@@ -7,46 +7,28 @@ const ui = require('./ui')
 
 $(() => {
   $('.square').on('click', game.fill)
-  // $('#reset').on('click', game.newGame)
 }
 )
 
-// $('#new-game').click(function () {
-//   $('#board').show()
-//   event.preventDefault()
-// })
-
 const onSignUp = function (event) {
   const data = getFormFields(this)
-  // console.log('Signed Up Worked!')
   event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
-    // .then($('#board').show())
-    // .then($('#change-password').show())
-    // .then($('#sign-out').show())
-    // .then($('#games-history').show())
     .catch(ui.signUpFailure)
 }
 
 const onSignIn = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log(data)
+  // console.log(data)
   api.signIn(data)
     .then(ui.signInSuccess)
-    // .then($('#board').show())
-    // .then($('#board').show())
-    // .then($('#change-password').show())
-    // .then($('#sign-out').show())
-    // .then($('#games-history').show())
-    // .then(api.createGame)
-    // .then(ui.createGameSuccess)
     .catch(ui.signInFailure)
 }
 const onChangePassword = function (event) {
   const data = getFormFields(this)
-  console.log(data)
+  // console.log(data)
   // console.log('You have changed password!')
   event.preventDefault()
   api.changePassword(data)
@@ -57,7 +39,6 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  // console.log('You have signed out!')
   api.signOut()
     .then(ui.signOutSuccess)
     .then($('#board').hide())
@@ -67,7 +48,7 @@ const onSignOut = function (event) {
 }
 
 const onCreateGame = function (event) {
-  console.log('onCreateGame function works.')
+  // console.log('onCreateGame function works.')
   api.createGame()
     .then(ui.createGameSuccess)
     .then($('#games-history').show())
@@ -76,13 +57,13 @@ const onCreateGame = function (event) {
 
 const onNewMove = function (event) {
   event.preventDefault()
-  console.log('You have made a new move!')
+  // console.log('You have made a new move!')
   const gameOver = store.gameOver
-  console.log(gameOver)
+  // console.log(gameOver)
   const indexOfCell = $(event.target).attr('id')
   const player = $(event.target).text()
-  console.log(gameOver, indexOfCell, player)
-  console.log(store)
+  // console.log(gameOver, indexOfCell, player)
+  // console.log(store)
   api.newMove(gameOver, indexOfCell, player)
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
@@ -90,7 +71,7 @@ const onNewMove = function (event) {
 
 const onGameHistory = function (event) {
   event.preventDefault()
-  console.log('Game History Was pressed')
+  // console.log('Game History Was pressed')
   api.gameHistory()
     .then(ui.getGameHistorySuccess)
     .catch(ui.getGameHistoryFailure)

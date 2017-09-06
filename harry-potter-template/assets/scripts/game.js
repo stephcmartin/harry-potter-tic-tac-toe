@@ -3,45 +3,36 @@
 const store = require('./store')
 
 let gameArray = ['', '', '', '', '', '', '', '', '']
-console.log(gameArray)
 let turn = 'X'
 let hasDraw = false
 
 const fill = function (event) {
   const id = $(this).attr('id')
-  // console.log(id)
-  console.log(gameArray)
+  // console.log(gameArray)
   if (gameArray[id] !== '') {
-    console.log('This square is taken. Please choose another!')
+    // console.log('This square is taken. Please choose another!')
     $('#message').text('This square is taken. Please choose another!')
   } else if (gameArray[id] === '' && turn === 'X') {
     gameArray[id] = 'X'
     $('#' + id).text('X')
-    // console.log(gameArray)
     $('#message').text('Wizard O, you shall now play.')
-    console.log(gameArray)
+    // console.log(gameArray)
     checkForDraw(turn)
     checkForWinner(turn)
     turn = 'O'
-    // checkForWinner(turn)
-    console.log('X has played. It is O now.')
-    // console.log(gameArray)
+    // console.log('X has played. It is O now.')
   } else {
     gameArray[id] = 'O'
     $('#' + id).text('O')
     $('#message').text('Wizard X, you shall now play.')
     checkForDraw(turn)
     checkForWinner(turn)
-    console.log(gameArray)
+    // console.log(gameArray)
     turn = 'X'
-
-    // checkForWinner(turn)
   }
 }
 
 const checkRow = function (a, b, c, turn) {
-  // console.log('checkRow()')
-  // console.log(gameArray)
   let result = false
   if (gameArray[a] === turn && gameArray[b] === turn && gameArray[c] === turn) {
     result = true
@@ -51,9 +42,9 @@ const checkRow = function (a, b, c, turn) {
 }
 
 const checkForWinner = function (turn) {
-  console.log('checkWinner()')
-  console.log(gameArray)
-  console.log(turn)
+  // console.log('checkWinner()')
+  // console.log(gameArray)
+  // console.log(turn)
   let result = false
   if (checkRow(0, 1, 2, turn) ||
      checkRow(3, 4, 5, turn) ||
@@ -66,7 +57,7 @@ const checkForWinner = function (turn) {
      checkRow(0, 4, 8, turn)) {
     result = true
     store.gameOver = true
-    console.log('There is a winner')
+    // console.log('There is a winner')
     $('#message').text('Mischeif Managed! ' + turn + ' is the winner!')
     $('.square').off()
   }
@@ -83,14 +74,14 @@ const checkForDraw = function () {
 }
 
 const reset = function () {
-  console.log('Mischeif Managed!')
+  // console.log('Mischeif Managed!')
   turn = 'X'
   gameArray = ['', '', '', '', '', '', '', '', '']
   store.gameOver = false
   $('.square').text('')
   $('#message').text('')
   $('#message').text('Wizard X, please cast your spell!')
-  console.log(gameArray)
+  // console.log(gameArray)
 }
 
 const newGame = function () {
