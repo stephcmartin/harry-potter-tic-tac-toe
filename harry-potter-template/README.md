@@ -4,7 +4,7 @@ Timeline: 6 days
 
 # My Development Process:
 1.) Wire Frame and Game Store<br>
-Before I started coding, I wrote down the basic functions that I knew my game needed, as well as the overall astehtics, theme and layout that I wanted. [In case you want to take a sneak peak this is my wireframe.](https://imgur.com/a/ey76B)
+Before I started coding, I wrote down the basic functions that I knew my game needed, as well as the overall astehtics, theme and layout that I wanted. [In case you want to take a sneak peak this is my wireframe.](https://imgur.com/a/ey76B)<br>
 2.) Building the Game UI<br>
 I created a workable gameboard representation which handled user actions. I had wanted to use bootstrap to make it responsive. However - being not too familiar with bootstap, I realised I could use a table, too. I therefore created 3 rows with 3 squares each. <br>
 3.) Game Logic<br>
@@ -14,7 +14,7 @@ I followed the Authentication template repo we worked on in class and changed so
 5.) Linking the Game to the Games API<br>
 I struggled a lot without linking up the game files to the auth files. I had allocated 2 days to create this part. In reality this took 4 days and a ton of issue queue. There was a lot of ground that we didn’t cover in class that was needed to make things work. Issue queues became my best friend.<br>
 6.) Polishing my CSS<br>
-After resloving my game logic and auth issues, I polished up my CSS.
+After resloving my game logic and auth issues, I polished up my CSS.<br>
 
 # Basic Functionality Of The Game (That I Knew I Would Need):
 * A set of states of the game. In my game, each state would represent a certain configuration of the grid.
