@@ -1,5 +1,5 @@
 Timeline: 6 days
-# Try and play my game:
+# Try To Play My Game:
 [Click Here for demo](https://stephcmartin.github.io/harry-potter-tic-tac-toe/harry-potter-template/)
 
 # My Development Process:
@@ -16,14 +16,14 @@ I struggled a lot without linking up the game files to the auth files. I had all
 6.) Polishing my CSS<br>
 After resloving my game logic and auth issues, I polished up my CSS.
 
-# Basic functions that were needed in my game:
+# Basic Functionality Of The Game (That I Knew I Would Need):
 * A set of states of the game. In my game, each state would represent a certain configuration of the grid.
 * A finite set of actions: only one action a player can do which is put his/her letter on an empty cell.
 * A transition function: takes the current state and the played action and returns the next state in the game.
 * A terminal test function that checks if a state is terminal/ if there is a winner.
 * A score function that calculates the score of the player at a terminal state.
 
-# Technologies Use To Build This Game:
+# Technologies Used To Build This Game:
 * Client
     * jQuery - For UI manipulation and AJAX calls
     * SASS
@@ -38,7 +38,7 @@ After resloving my game logic and auth issues, I polished up my CSS.
     * Git
     * Github
 
-# User Stories:
+# User Stories - What A User Could Expect From The Game:
 1. As a user, I want to play tic-tac-toe with my friend on the same computer.
 2. As a user, I want to register log-in so that I can save and track my games.
 3. As a user, I want to track my past game data.
@@ -47,7 +47,7 @@ After resloving my game logic and auth issues, I polished up my CSS.
 6. As a user, I want to be able to change my password
 7. As a user, I want to be able to log out.
 
-# Some Basic Game Code Logic that I knew I needed:
+# Some Basic Game Code Logic That I Knew I Needed:
 * checkIfLegal - to see if the move can be made/if the square has been taken
 * changeBoard - update board after each move
 * displayBoard after change
@@ -55,17 +55,17 @@ After resloving my game logic and auth issues, I polished up my CSS.
 * checkForWinner - check to see if move match the winning combo
 * checkIfTie - check to see if no one wins the game.
 
-# My wireframe
+# My Initial Wireframe
 [This was my initial wireframe. You can take a look here.](https://imgur.com/a/ey76B)
 
-# Things I didn't know I would need:
+# Things I Didn't Know I Would Need:
 * How to PATCH after every move - i.e the serve needs to know who has made a move and what was moved. This single handedly was the hardest part of the whole project.
 * How to stringify a JSON object to display 'how many games have been played'
 * What STORE actually is and how to use it.
 * How to upload images that can be deployed. (I now know it has to be in the root directory.)
 * The the inputs of X and O need to be in an array.
 
-# Code I am most proud of:
+# Code I Am Most Proud Of:
 1.) Making a PATCH request every time a move is made on the board. I needed 3 different inputs that went into the function. This was gorund we didn't cover in class and I'm pretty pound of it.
 
 ```js
@@ -101,9 +101,6 @@ const checkRow = function (a, b, c, turn) {
 }
 
 const checkForWinner = function (turn) {
-  // console.log('checkWinner()')
-  // console.log(gameArray)
-  // console.log(turn)
   let result = false
   if (checkRow(0, 1, 2, turn) ||
      checkRow(3, 4, 5, turn) ||
@@ -116,7 +113,6 @@ const checkForWinner = function (turn) {
      checkRow(0, 4, 8, turn)) {
     result = true
     store.gameOver = true
-    // console.log('There is a winner')
     $('#message').text('Mischeif Managed! ' + turn + ' is the winner!')
     $('.square').off()
   }
@@ -132,7 +128,7 @@ const checkForDraw = function () {
   }
 }
 ```
-# List of unsolved problems which would be fixed in future iterations:
+# List Of Unsolved Problems Which Would Be Fixed In Future Iterations:
 
 One major part that I would love to improve on is the CSS.
 * I would still love to learn how to incorporate photos into my project. i.e add a creative banner + logo.
