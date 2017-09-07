@@ -4,7 +4,7 @@ Timeline: 6 days
 
 # My Development Process:
 1.) Wire Frame and Game Store<br>
-Before I started coding, I wrote down the basic functions that I knew my game needed, as well as the overall astehtics, theme and layout that I wanted.
+Before I started coding, I wrote down the basic functions that I knew my game needed, as well as the overall astehtics, theme and layout that I wanted. [In case you want to take a sneak peak this is my wireframe.](https://imgur.com/a/ey76B)
 2.) Building the Game UI<br>
 I created a workable gameboard representation which handled user actions. I had wanted to use bootstrap to make it responsive. However - being not too familiar with bootstap, I realised I could use a table, too. I therefore created 3 rows with 3 squares each. <br>
 3.) Game Logic<br>
@@ -133,3 +133,15 @@ const checkForDraw = function () {
 }
 ```
 # List of unsolved problems which would be fixed in future iterations:
+
+One major part that I would love to improve on is the CSS.
+* I would still love to learn how to incorporate photos into my project. i.e add a creative banner + logo.
+* Add animation! Would be great to have the background change between the different houses and have it slightly animated.
+* Change the X and Os to Wands and a quidditch.
+* Move my Message Board lower - so that the player wouldn't need to scroll up to read it.
+* Scoreboard of the two players.
+
+Non-CSS related:
+* Write more DRY code - there are a lot of CSS code that could be put into functions. Which would be more effective.
+* Potentially a palyer vs. computer game that incorporated AI.
+* Create better seperation of concerns. Currently all of my game related functions are in one file.
