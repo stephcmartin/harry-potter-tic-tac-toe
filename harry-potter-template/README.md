@@ -25,8 +25,7 @@ After resloving my game logic and auth issues, I polished up my CSS.<br>
 
 # Technologies Used To Build This Game:
 * Client
-    * jQuery - For UI manipulation and AJAX calls
-    * SASS
+    * jQuery
     * HTML
     * SCSS
 * Build System
@@ -119,14 +118,6 @@ const checkForWinner = function (turn) {
   return result
 }
 
-const checkForDraw = function () {
-  if (gameArray[0] !== '' && gameArray[1] !== '' && gameArray[2] !== '' &&
-  gameArray[3] !== '' && gameArray[4] !== '' && gameArray[5] !== '' &&
-  gameArray[6] !== '' && gameArray[7] !== '' && gameArray[8] !== '') {
-    $('#message').text('Wizards, recast your spell. No one wins the duel.')
-    hasDraw = true
-  }
-}
 ```
 # List Of Unsolved Problems Which Would Be Fixed In Future Iterations:
 
