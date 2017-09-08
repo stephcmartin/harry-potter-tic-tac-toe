@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Harry Potter Tic Tac Toe Game </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+<link rel="icon" type="image/png" href="http://karvelio.com/wp-content/uploads/2017/08/favicon-1.png">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <br><br>
+    <img src="http://i.imgur.com/TnAqTB3.png">
+      <h1>Harry Potter Tic Tac Toe Game ⚡️</h1>
+      <h2>I Solemnly Swear That I Am Up To No Good</h2>
+
+      <!-- Instruction Button -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Instructions
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Instructions</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="http://i.imgur.com/bis662q.png">
+              Two wizards play on 3x3 grid.
+              A wizard can put his/her spell (either X or O) in an empty cell in the grid.<br><br>
+              If a wizard forms a row, a column or a diagonal with his/her spells, that player wins the duel and the game ends.<br><br>
+              If the grid is full and there’s no row, column or diagonal of the same letter, the duel ends at draw.<br><br>
+              A wizard should try to win in the lowest possible number of moves.<br><br>
+            </div>
+            <br>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Instruction Button End -->
+      <br>
+      <div id="message"></div>
+<nav>
+<div class="menuRow">
+<div class="panel">
+<div class="message" id='message'></div>
+<!-- Sign Up -->
+<form id="sign-up">
+        <fieldset>
+          <legend><br>First Year Wizards, Sign Up Here: </legend>
+          <input type="text" name="credentials[email]" placeholder="YOUR EMAIL">
+          <input type="password" name="credentials[password]" placeholder="YOUR PASSWORD">
+          <input type="password" name="credentials[password_confirmation]" placeholder="PASSWORD CONFIRMATION">
+          <input type="submit" name="submit" value="Sign up!">
+        </fieldset>
+</form>
+<br>
+      <form id="sign-in">
+        <fieldset>
+          <legend>Senior Wizards, Sign In To Your Account:</legend>
+          <input type="text" name="credentials[email]" placeholder="YOUR EMAIL">
+          <input type="password" name="credentials[password]" placeholder="YOUR PASSWORD">
+          <input type="submit" name="submit" value="Sign in to your account!">
+        </fieldset>
+      </form>
+      <form id="change-password">
+        <fieldset>
+          <legend>Change your password:</legend>
+          <input type="password" name="passwords[old]" placeholder="YOUR OLD PASSWORD">
+          <input type="password" name="passwords[new]" placeholder="YOUR NEW PASSWORD">
+          <input type="submit" name="submit" value="Change your password!">
+        </fieldset>
+      </form>
+      <br>
+      <form id="sign-out">
+        <fieldset>
+          <legend></legend>
+          <input type="submit" name="submit" value="Sign Out!">
+        </fieldset>
+      </form>
+<br>
+</div>
+<!-- <form id="new-game">
+  <legend>Wave Your Wand and Start A New Game</legend>
+<button type="submit" class="btn btn-secondary" id="newGameButton" value="New Game">Alohomora 🔑 </button>
+</form> -->
+<form class ="games" id ="games-history">
+<button type="submit" class="btn btn-default"> Alohomora 🔑 Get Game History</button>
+</form>
+<br>
+<form class ="games" id ="new-game-button">
+  Cast a new spell:<br>
+<button type="submit" class="btn btn-default">Start A New Game ⚡️ </button>
+</form>
+</div>
+</nav>
+<!-- <div class="scoreboard">
+  <div class="input-prepend input-append">
+    <span class="add-on win_text">O won </span>
+    <strong id="o_win" class="win_times add-on">0</strong>
+    <span class="add-on"> time(s)</span>
+    </div>
+    <div class="input-prepend input-append">
+    <span class="add-on win_text">X won </span>
+    <strong id="x_win" class="win_times add-on">0</strong>
+    <span class="add-on"> time(s)</span>
+    </div>
+</div> -->
+
+<br>
+<div id="bigBoard">
+<div id="board">
+<img src="http://i.imgur.com/bis662q.png">
+<table border="1">
+<tr>
+  <td class="square" id="0"></td>
+  <td class="square" id="1"></td>
+  <td class="square" id="2"></td>
+</tr>
+<tr>
+  <td class="square" id="3"></td>
+  <td class="square" id="4"></td>
+  <td class="square" id="5"></td>
+</tr>
+<tr>
+  <td class="square" id="6"></td>
+  <td class="square" id="7"></td>
+  <td class="square" id="8"></td>
+</tr>
+</table>
+<!-- <button type="button" class="btn btn-primary btn-md" id="reset"> Mischeif Managed. Restart Game.</button> -->
+</div>
+</div>
+  <footer>Made By Root Wizard Stephanie Martin Connelly 🍩 </footer>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">About This Wizard</button>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+<img src="http://i.imgur.com/8JPhH8E.png">
+<br><br>Education enthusiast and community builder turned full stack web developer.
+<br><br>
+Born and raised in Hong Kong, Stephanie is an education, travel and tech enthusiast with a comprehensive background working in community building and tech education. <br>
+<br>She can be found in Boston playing quidditch with her husband and standard poodle.
+    </div>
+  </div>
+</div>
+<br>
+  <a href="http://www.linkedin.com/in/stephcmartin" class="fa fa-linkedin"></a>
+<a href="http://www.github.com/stephcmartin" class="fa fa-github"></a>
+</body>
+</html>
